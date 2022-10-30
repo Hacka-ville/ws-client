@@ -9,22 +9,27 @@ import {Activities} from "../components/Activities";
 import {Payments} from "../components/Payments";
 
 const CreateTravelPage = (props) => {
+    const [travel, setTravel] = useState({
+        flight: {},
+        hotel: {},
+        activities: [],
+    })
     const [active, setActive] = useState(0);
     let titlePage = !active ? 'Select the most convenient flight!' : active === 1 ? 'Select the hotel you have a taste for!' : active === 2 ? 'Select the activities you enjoy the most!' : active === 3 ? 'Now let\'s make sure that everything is as you wish to be!' : 'Select the most convenient flight!';
 
     const renderStep = (step) => {
         switch (step) {
             case 0:
-                return <Flights city={props.city} dates={props.dates}/>;
+                return <Flights city={props.city} dates={props.dates} setTravel={setTravel}/>;
                 break;
             case 1:
-                return <Hotels />;
+                return <Hotels setTravel={setTravel}/>;
                 break;
             case 2:
-                return <Activities />;
+                return <Activities setTravel={setTravel}/>;
                 break;
             case 3:
-                return <Payments elements={[{ name: 'Hotel London', price: '1200', category: 'Location'}]}/>;
+                return <Payments elements={[{ name: 'Hotel London', price: '1200', category: 'Location'}]} travel={travel}/>;
                 break;
             default:
                 return null;
@@ -46,7 +51,7 @@ const CreateTravelPage = (props) => {
             <Button onClick={() => setActive(active-1)} leftIcon={<IconPlayerTrackPrev size={14} />} style={{ position: 'absolute', left: '100px', display: `${active !== 0 ? "block" : "none"}`}}>
                 Previous step
             </Button>
-            <Button onClick={() => setActive(active+1)} leftIcon={<IconPlayerTrackNext size={14} />} style={{ position: 'absolute', right: '100px', display: `${active === 3  && "none"}` }}>
+            <Button onClick={() => setActive(active + 1)} leftIcon={<IconPlayerTrackNext size={14} />} style={{ position: 'absolute', right: '100px', display: `${active === 3  && "none"}` }}>
                 Next step
             </Button>
         </React.Fragment>

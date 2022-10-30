@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import { createStyles, Table, Checkbox, ScrollArea, Group, Avatar, Text } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -10,7 +10,7 @@ const useStyles = createStyles((theme) => ({
     },
 }));
 
-export function Activities() {
+export function Activities(props) {
     const { classes, cx } = useStyles();
     const [selection, setSelection] = useState(['1']);
     const [activities, setActivities] = useState([
@@ -55,6 +55,16 @@ export function Activities() {
         );
     });
 
+    useEffect(() => {
+        const activities = [];
+        for(const activity of selection) {
+            activities.push(activity);
+        }
+        props.setTravel(prevData => ({
+            ...prevData,
+            activities: [...activities],
+        }))
+    }, [selection])
     return (
         <ScrollArea>
             <Table sx={{ minWidth: 800 }} verticalSpacing="sm">

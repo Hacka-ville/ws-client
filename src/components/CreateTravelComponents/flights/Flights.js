@@ -35,7 +35,8 @@ const Flights = (props) => {
                         arriveLocation: currentCity
                     }
                 })
-            });
+            }).then(res => res.json())
+                .then(data => setFlights(data))
         }
         getFlightsByLocations()
     }, [])
@@ -51,7 +52,7 @@ const Flights = (props) => {
            <Title order={3}><IconPlaneArrival /> {`${from} - ${to}`}</Title>
            <CalendarComponent selectedDay={selectedDay} onChange={(day) => setSelectedDay(day)}/>
            </div>
-           <FlightsList flights={flights} />
+           <FlightsList flights={flights} setTravel={props.setTravel}/>
 
        </Container>
 

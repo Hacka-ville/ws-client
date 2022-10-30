@@ -28,10 +28,10 @@ const FlightsList = (props) => {
                     <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', margin: '0 10px 0 auto'}}>
                         <Text>123$</Text>
                         <Button variant="outline" onClick={e => {
-                            // props.setTravelData(travel => ({
-                            //     ...travel,
-                            //     flight: flight
-                            // }));
+                            props.setTravel(prevData => ({
+                                ...prevData,
+                                flight: { ...flight }
+                            }));
                             const container = e.target.closest(`#flight-${index}`);
                             setSelectedFlight(container.querySelector(`#${flight.id}`).id);
                         }}>Selecteaza</Button>

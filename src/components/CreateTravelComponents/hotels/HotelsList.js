@@ -26,6 +26,10 @@ const HotelsList = (props) => {
             {props.hotels.map((hotel, index) => (
                 <Card onClick={() => {
                     setSelectedHotel(hotel.id);
+                    props.setTravel(prevData => ({
+                        ...prevData,
+                            hotel: {...hotel},
+                    }))
                 }} shadow="xs" mt="md" style={{ width: "120%", display: 'flex', border: `${hotel.id === selectedHotel ? '2px solid red' : 'none'}`, padding: '0'}} id={`hotel-${index}`} key={index}>
                     <div style={{ height: '150px'}}>
                         <Image
