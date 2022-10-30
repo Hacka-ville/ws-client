@@ -13,7 +13,7 @@ const App = (props) => {
   const [openModal, setOpenModal] = useState(false);
 
   const onHandleFindTravel = () => {
-    if (!dates[0][0] || !dates[0][1].getDate() || !city[0]) {
+    if (!dates[0][0] || !dates[0][1].getDate()) {
       setOpenModal(true);
     }
   };
