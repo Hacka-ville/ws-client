@@ -29,7 +29,7 @@ const Flights = (props) => {
                 },
                 body: JSON.stringify({
                     startDate: `${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() : '0' + startDate.getMonth()}-${parseInt(startDate.getDate(), 10) > 9 ? startDate.getDate() : '0' + startDate.getDate()}`,
-                    endDate: `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}`,
+                    endDate: `${endDate.getFullYear()}-${parseInt(endDate.getMonth(), 10)> 9 ? endDate.getMonth() : '0' + endDate.getMonth()}-${parseInt(endDate.getDate(), 10)> 9 ? endDate.getDate() : '0' + endDate.getDate()}`,
                     location: {
                         flightLocation: cityName,
                         arriveLocation: currentCity
