@@ -6,15 +6,14 @@ import { Modal, Text } from "@mantine/core";
 import LoginPage from "./pages/LoginPage";
 
 const App = (props) => {
-  const dates = useState([new Date(), new Date("")]);
+  const dates = useState([new Date(), new Date()]);
+  console.log(dates);
 
   const city = useState("");
   const [openModal, setOpenModal] = useState(false);
 
   const onHandleFindTravel = () => {
-    if (dates[0][0] && dates[0][1].getDate() && city[0]) {
-      window.location = "http://localhost:3000/travel";
-    } else {
+    if (!dates[0][0] || !dates[0][1].getDate() || !city[0]) {
       setOpenModal(true);
     }
   };
