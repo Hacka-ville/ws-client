@@ -32,7 +32,7 @@ export function CalendarComponent({ startDate = new Date("10-10-2021"), endDate 
             minDate={dayjs(new Date(startDate)).startOf('month').toDate()}
             maxDate={dayjs(new Date(endDate)).endOf('month').toDate()}
             renderDay={(date) => {
-                const day = date.getDate(startDate);
+                const day = date.getDate();
                 return (
                     <React.Fragment>
                         <div style={{ lineHeight: 'initial', marginTop: '30px', margin: 'auto 0' }}>{day}</div>

@@ -15,7 +15,7 @@ const CreateTravelPage = (props) => {
     const renderStep = (step) => {
         switch (step) {
             case 0:
-                return <Flights />;
+                return <Flights city={props.city} dates={props.dates}/>;
                 break;
             case 1:
                 return <Hotels />;

@@ -3,12 +3,39 @@ import {Container, Title} from "@mantine/core";
 import {IconPlaneArrival} from "@tabler/icons";
 import {CalendarComponent} from "../../Calendar";
 import FlightsList from "./FlightsList";
+import {getCoordinates, getCity} from "../../../utils/GetCityNameByLocation";
 
 const Flights = (props) => {
-    const [flights, setFlights] = useState([{ id: 'id1'}, { id: 'id3'}]);
+    const [startDate, endDate] = props.dates[0];
+    const [currentCity, setCurrentCity] = useState('');
+    const [coordinates, setCoordinates] = useState([]);
+    const cityName = props.city[0];
+    const [flights, setFlights] = useState([]);
+
     useEffect(() => {
-        const getFlightsByLocations = (locations) => {
-            fetch('');
+        getCoordinates(setCoordinates, setCurrentCity);
+        getCity(coordinates, setCurrentCity);
+    }, [])
+
+    useEffect(() => {
+        const getFlightsByLocations = () => {
+            fetch('/route-fligth', {
+                method: 'POST',
+                mode: 'cors',
+                cache: 'no-cache',
+                credentials: 'same-origin',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    startDate: `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`,
+                    endDate: `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}`,
+                    location: {
+                        flightLocation: cityName,
+                        arriveLocation: currentCity
+                    }
+                })
+            });
         }
         getFlightsByLocations()
     }, [])

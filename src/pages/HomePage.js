@@ -6,14 +6,10 @@ import { TopDestinations } from "../components/TopDestinations/TopDestinations";
 import { TopAttractions } from "../components/TopAttractions/TopAttractions";
 import { Footer } from "../components/Footer/Footer";
 
-const HomePage = () => {
-  /*const features = data.map((feature, index) => (
-    <Feature {...feature} key={index} />
-  ));*/
-
+const HomePage = (props) => {
   return (
     <React.Fragment>
-      <Navbar />
+      <Navbar handleTravel={props.onHandleFindTravel} city={props.city} dates={props.dates}/>
       <CarouselHome />
       <FeaturesHome />
       <hr />
