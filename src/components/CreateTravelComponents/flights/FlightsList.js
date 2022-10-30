@@ -25,7 +25,7 @@ const FlightsList = (props) => {
                         </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', margin: '0 10px 0 auto'}}>
-                        <Text>{flight.price}+ ' $'</Text>
+                        <Text>{flight.price}$</Text>
                         <Button variant="outline" onClick={e => {
                             props.setTravel(prevData => ({
                                 ...prevData,
