@@ -6,9 +6,7 @@ import FlightsList from "./FlightsList";
 import {getCoordinates, getCity} from "../../../utils/GetCityNameByLocation";
 
 const Flights = (props) => {
-    // const [startDate, endDate] = props.dates[0];
-    const startDate = new Date('01-01-2022');
-    const endDate = new Date('01-01-2023');
+    const [startDate, endDate] = props.dates[0];
     console.log(endDate, startDate, 'dates');
     const [currentCity, setCurrentCity] = useState('');
     const [coordinates, setCoordinates] = useState([]);
@@ -31,8 +29,8 @@ const Flights = (props) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    startDate: "2022-01-01",
-                    endDate: "2023-01-01",
+                    startDate: startDate.toISOString().split('T')[0],
+                    endDate: endDate.toISOString().split('T')[0],
                 })
             }).then(res => res.json())
                 .then(data => setFlights([...data.body]))
