@@ -35,7 +35,7 @@ const Flights = (props) => {
                     endDate: "2023-01-01",
                 })
             }).then(res => res.json())
-                .then(data => setFlights([...data]))
+                .then(data => setFlights([...data.body]))
         }
         getFlightsByLocations()
     }, [])
