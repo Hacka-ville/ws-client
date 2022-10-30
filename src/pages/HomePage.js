@@ -9,7 +9,11 @@ import { Footer } from "../components/Footer/Footer";
 const HomePage = (props) => {
   return (
     <React.Fragment>
-      <Navbar handleTravel={props.onHandleFindTravel} city={props.city} dates={props.dates}/>
+      <Navbar
+        handleTravel={props.onHandleFindTravel}
+        city={props.city}
+        dates={props.dates}
+      />
       <CarouselHome />
       <FeaturesHome />
       <hr />
