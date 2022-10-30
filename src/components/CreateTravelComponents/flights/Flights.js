@@ -28,7 +28,7 @@ const Flights = (props) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    startDate: `${startDate.getFullYear()}-${startDate.getMonth()}-${startDate.getDay()}`,
+                    startDate: `${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() : '0' + startDate.get()}-${startDate.getDate()}`,
                     endDate: `${endDate.getFullYear()}-${endDate.getMonth()}-${endDate.getDay()}`,
                     location: {
                         flightLocation: cityName,
@@ -36,7 +36,7 @@ const Flights = (props) => {
                     }
                 })
             }).then(res => res.json())
-                .then(data => setFlights(data))
+                .then(data => setFlights([...data]))
         }
         getFlightsByLocations()
     }, [])
