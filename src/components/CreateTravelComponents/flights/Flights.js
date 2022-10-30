@@ -6,7 +6,9 @@ import FlightsList from "./FlightsList";
 import {getCoordinates, getCity} from "../../../utils/GetCityNameByLocation";
 
 const Flights = (props) => {
-    const [startDate, endDate] = props.dates[0];
+    // const [startDate, endDate] = props.dates[0];
+    const startDate = new Date('01-01-2022');
+    const endDate = new Date('01-01-2023');
     console.log(endDate, startDate, 'dates');
     const [currentCity, setCurrentCity] = useState('');
     const [coordinates, setCoordinates] = useState([]);
@@ -19,7 +21,7 @@ const Flights = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(`${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() : '0' + startDate.getMonth()}-${parseInt(startDate.getDate(), 10) > 9 ? startDate.getDate() : '0' + startDate.getDate()}`,);
+        console.log(`${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() +1 : '0' + (startDate.getMonth()+1)}-${parseInt(startDate.getDate(), 10) > 9 ? startDate.getDate() +1 : '0' + (startDate.getDate() +1)}`);
         console.log(`${endDate.getFullYear()}-${parseInt(endDate.getMonth(), 10)> 9 ? endDate.getMonth() : '0' + endDate.getMonth()}-${parseInt(endDate.getDate(), 10)> 9 ? endDate.getDate() : '0' + endDate.getDate()}`,);
         const getFlightsByLocations = () => {
             fetch('/route-fligth', {
