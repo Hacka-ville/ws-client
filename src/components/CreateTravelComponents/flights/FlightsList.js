@@ -17,21 +17,20 @@ const FlightsList = (props) => {
             {props.flights.map((flight, index) => (
                 <Card shadow={"md"} style={{ width: "120%", display: 'flex', border: `${flight.id === selectedFlight ? '2px solid blue' : 'none'}`}} id={`flight-${index}`} key={index}>
                     <div style={{ width: '85%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                    <Text size="md" style={{ textAlign: 'center'}}>13:25 <div>Timisoare</div></Text>
-                    <Divider size="lg" style={{ width: '50%'}} label={getMinDiff(new Date('11-11-2021'), new Date('11-12-2021')) + ' MINS'} labelPosition="center"/>
-                    <Text size="md" style={{ textAlign: 'center'}}>{"14:55"}<div>Milano</div></Text>
+                    <Text size="md" style={{ textAlign: 'center'}}>13:25 <div>{flight.location.flightLocation}</div></Text>
+                    <Divider size="lg" style={{ width: '50%'}} label={getMinDiff(new Date(flight.flightInformations.flightHour.replaceAll(':', '-')), new Date(flight.flightInformations.arriveHour.replaceAll(':', '-'))) + ' MINS'} labelPosition="center"/>
+                    <Text size="md" style={{ textAlign: 'center'}}>{"14:55"}<div>{flight.location.arriveLocation}</div></Text>
                         <div style={{ display: 'flex', flexDirection: 'column'}}>
-                        <Text size="sm" style={{ color: '#2b2b2b' }} id={flight.id}>Nr. zbor: FR123</Text>
-                        <Text size="sm" style={{ color: '#2b2b2b' }}>Locuri ramase: 12</Text>
+                        <Text size="sm" style={{ color: '#2b2b2b' }} id={flight.id}>Nr. zbor: {flight.number}</Text>
                         </div>
                     </div>
                     <div style={{ display: 'flex', alignItems: 'center', flexDirection: 'column', margin: '0 10px 0 auto'}}>
-                        <Text>123$</Text>
+                        <Text>{flight.price}$</Text>
                         <Button variant="outline" onClick={e => {
-                            // props.setTravelData(travel => ({
-                            //     ...travel,
-                            //     flight: flight
-                            // }));
+                            props.setTravel(prevData => ({
+                                ...prevData,
+                                flight: { ...flight }
+                            }));
                             const container = e.target.closest(`#flight-${index}`);
                             setSelectedFlight(container.querySelector(`#${flight.id}`).id);
                         }}>Selecteaza</Button>

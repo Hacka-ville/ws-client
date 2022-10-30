@@ -2,6 +2,7 @@ import {Group, Modal, Table, Button} from '@mantine/core';
 import React, {useState} from "react";
 
 export function Payments(props) {
+    console.log(props.travel);
     const [opened, setOpened] = useState(false);
 
     const totalPrice = props.elements.reduce((acc, el) => acc + parseInt(el.price, 10), 0);

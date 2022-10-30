@@ -3,7 +3,7 @@ import Filters from "./Filters";
 import HotelsList from "./HotelsList";
 import {Container} from "@mantine/core";
 
-const Hotels = () => {
+const Hotels = (props) => {
     const hotels = [{
         facilities: ['Da', 'Spa'],
         id: '1',
@@ -16,7 +16,7 @@ const Hotels = () => {
     return (
         <Container size="xl" style={{ display: 'flex'}}>
         <Filters hotels={hotels}/>
-            <HotelsList hotels={hotels} />
+            <HotelsList hotels={hotels} setTravel={props.setTravel}/>
         </Container>
     )
 }

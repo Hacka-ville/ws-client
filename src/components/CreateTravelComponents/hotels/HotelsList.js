@@ -13,10 +13,10 @@ const HotelsList = (props) => {
             <div style={{ display: 'flex' }}>
             <Text size="sm" style={{ display: 'inline-block', marginRight: "10px"}}>London</Text><Rating value="4"></Rating>
             </div>
-            <Text style={{ color: '#3b3b3b', fontStyle: 'italic', marginTop: '7px', wordBreak: 'break-all'}}>Lorem ispum fjofsdisdmvdfovmsoiddddddddddddddddddddddddddddddddd ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddmoi</Text>
+            <Text style={{ color: '#3b3b3b', fontStyle: 'italic', marginTop: '7px', wordBreak: 'break-all'}}>Hotel description</Text>
             {hotel.facilities.map((facility, index) => <Text size="sm" style={{ display: 'inline', color: 'darkgray', marginRight: '6px', marginBottom: '20px'}} key={index}>{facility}</Text>)}
             <div style={{ float: 'right' }}>
-            <Text style={{ textAlign: 'right', fontWeight: 'bold'}}>Pret/Persoana</Text>
+            <Text style={{ textAlign: 'right', fontWeight: 'bold'}}>Price/Person</Text>
             <Text style={{ fontSize: '30px', color: 'orangered', fontWeight: 'bolder'}}>123 RON</Text>
             </div>
             </div>
@@ -26,6 +26,10 @@ const HotelsList = (props) => {
             {props.hotels.map((hotel, index) => (
                 <Card onClick={() => {
                     setSelectedHotel(hotel.id);
+                    props.setTravel(prevData => ({
+                        ...prevData,
+                            hotel: {...hotel},
+                    }))
                 }} shadow="xs" mt="md" style={{ width: "120%", display: 'flex', border: `${hotel.id === selectedHotel ? '2px solid red' : 'none'}`, padding: '0'}} id={`hotel-${index}`} key={index}>
                     <div style={{ height: '150px'}}>
                         <Image

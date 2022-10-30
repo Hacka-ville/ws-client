@@ -1,12 +1,11 @@
 import React from "react";
 import "./Navbar.css";
 import {IconAlertCircle, IconSearch} from "@tabler/icons";
-import {Tooltip, Input, Button} from "@mantine/core";
+import {Tooltip, Input} from "@mantine/core";
 import {DateRangePicker} from "@mantine/dates";
+import {Link} from "react-router-dom";
 
 export const Navbar = (props) => {
-
-
   return (
     <div className="navbar">
       <div className="logoContainer">
@@ -28,15 +27,15 @@ export const Navbar = (props) => {
       />
       <DateRangePicker
           value={props.dates[0]}
-          onChange={props.dates[1]}
+          onChange={e => props.dates[1](e)}
           style={{display: 'flex', justifyContent: 'center', alignItems:' center', marginRight: 'auto', marginLeft: '30px' }}
           placeholder="Pick dates range"
       />
-      <Button style={{display: 'flex', justifyContent: 'center', alignItems:' center', margin: 'auto 30px', }} onClick={() => {
+      <Link style={{display: 'flex', justifyContent: 'center', alignItems:' center', margin: 'auto 30px', padding: '5px 15px', backgroundColor: 'lightgray', borderRadius: '6px', textDecoration:'none', color: 'black' }} to="/travel" onClick={() => {
         props.handleTravel();
       }}>
         Find the best travel!
-      </Button>
+      </Link>
       <div className="navbarList">
         <div className="navbarItem">
           <img
