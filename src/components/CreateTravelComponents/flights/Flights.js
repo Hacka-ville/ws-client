@@ -21,8 +21,6 @@ const Flights = (props) => {
     }, [])
 
     useEffect(() => {
-        console.log(`${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() +1 : '0' + (startDate.getMonth()+1)}-${parseInt(startDate.getDate(), 10) > 9 ? startDate.getDate() +1 : '0' + (startDate.getDate() +1)}`);
-        console.log(`${endDate.getFullYear()}-${parseInt(endDate.getMonth(), 10)> 9 ? endDate.getMonth() : '0' + endDate.getMonth()}-${parseInt(endDate.getDate(), 10)> 9 ? endDate.getDate() : '0' + endDate.getDate()}`,);
         const getFlightsByLocations = () => {
             fetch('/route-fligth', {
                 method: 'POST',
@@ -33,8 +31,8 @@ const Flights = (props) => {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    startDate: `${startDate.getFullYear()}-${parseInt(startDate.getMonth(), 10)> 9 ? startDate.getMonth() : '0' + startDate.getMonth()}-${parseInt(startDate.getDate(), 10) > 9 ? startDate.getDate() : '0' + startDate.getDate()}`,
-                    endDate: `${endDate.getFullYear()}-${parseInt(endDate.getMonth(), 10)> 9 ? endDate.getMonth() : '0' + endDate.getMonth()}-${parseInt(endDate.getDate(), 10)> 9 ? endDate.getDate() : '0' + endDate.getDate()}`
+                    startDate: "2022-01-01",
+                    endDate: "2023-01-01",
                 })
             }).then(res => res.json())
                 .then(data => setFlights([...data]))
