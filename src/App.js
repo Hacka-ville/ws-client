@@ -35,7 +35,7 @@ const App = (props) => {
           path="/travel"
           element={<CreateTravelPage city={city} dates={dates} />}
         />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<LoginPage />} />
       </Routes>
       <Modal opened={openModal} onClose={() => setOpenModal(false)}>
         <Text style={{ position: "absolute", top: "20px" }}>

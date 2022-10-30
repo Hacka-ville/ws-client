@@ -1,0 +1,19 @@
+.allBody {
+    height: 100vh;
+    position: relative;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -105px;
+    margin-top: -75px;
+}
+
+.stacked {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 150px;
+}

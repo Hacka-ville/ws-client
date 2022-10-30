@@ -12,21 +12,20 @@ import { IconGauge, IconUser, IconCookie } from "@tabler/icons";
 
 const mockdata = [
   {
-    title: "Extreme performance",
+    title: "Extreme versatility",
     description:
-      "This dust is actually a powerful poison that will even make a pro wrestler sick, Regice cloaks itself with frigid air of -328 degrees Fahrenheit",
+      "We have the largest database of locations, attractions and activities out of all the othere travel companies out there",
     icon: IconGauge,
   },
   {
     title: "Privacy focused",
     description:
-      "People say it can run at the same speed as lightning striking, Its icy body is so cold, it will not melt even if it is immersed in magma",
+      "Here, at WorldSky, our users privacy is our top priority. By preserving and protecting our users' privacy, we are confident in increasing our options and user base in the future",
     icon: IconUser,
   },
   {
     title: "No third parties",
-    description:
-      "They’re popular, but they’re rare. Trainers who show them off recklessly may be targeted by thieves",
+    description: "No adds because we are own bosses.",
     icon: IconCookie,
   },
 ];
@@ -97,12 +96,12 @@ export function FeaturesHome() {
     <Container size="lg" py="xl">
       <Group position="center">
         <Badge variant="filled" size="lg">
-          Best company ever
+          Best travel agency ever
         </Badge>
       </Group>
 
       <Title order={2} className={classes.title} align="center" mt="sm">
-        Integrate effortlessly with any technology stack
+        Why book with WorldSky
       </Title>
 
       <Text
@@ -111,8 +110,9 @@ export function FeaturesHome() {
         align="center"
         mt="md"
       >
-        Every once in a while, you’ll see a Golbat that’s missing some fangs.
-        This happens when hunger drives it to try biting a Steel-type Pokémon.
+        Because we are the only travel agency in the entire world that takes the
+        most care of its customers by giving the users a unforgettable digital
+        experience.
       </Text>
 
       <SimpleGrid
