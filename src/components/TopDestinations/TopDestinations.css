@@ -1,0 +1,40 @@
+.topTitle {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+}
+
+.destinationsGrid {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    column-gap: 30px;
+    row-gap: 30px;
+    justify-content: center;
+}
+
+.destination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 150px;
+    border-radius: 10px;
+    background-image: url("../../../public/img/Carousel2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: filter 0.2s;
+}
+
+.destination h2 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 25px;
+    color: white;
+    text-shadow: 0 0 5px black;
+}
+
+
+.destination:hover {
+    filter: brightness(130%);
+}

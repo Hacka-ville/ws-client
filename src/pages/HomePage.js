@@ -1,20 +1,27 @@
-import React from 'react';
-import {DoubleHeader} from "../components/Header";
+import React from "react";
+import { Navbar } from "../components/Navbar/Navbar";
+import { CarouselHome } from "../components/CarouselHome";
+import { FeaturesHome } from "../components/FeaturesHome";
+import { TopDestinations } from "../components/TopDestinations/TopDestinations";
+import { TopAttractions } from "../components/TopAttractions/TopAttractions";
+import { Footer } from "../components/Footer/Footer";
 
 const HomePage = () => {
-    return <React.Fragment>
-        <DoubleHeader mainLinks={[{
-            label: "Home",
-            link: "/home/user"
-        },
-            {
-                label: "User",
-                link: "/user"
-            }]} userLinks={[{ label: "Login", link: "/login"}]}/>
-    <div>
-        Home page!
-    </div>
+  /*const features = data.map((feature, index) => (
+    <Feature {...feature} key={index} />
+  ));*/
+
+  return (
+    <React.Fragment>
+      <Navbar />
+      <CarouselHome />
+      <FeaturesHome />
+      <hr />
+      <TopDestinations />
+      <TopAttractions />
+      <Footer />
     </React.Fragment>
-}
+  );
+};
 
 export default HomePage;

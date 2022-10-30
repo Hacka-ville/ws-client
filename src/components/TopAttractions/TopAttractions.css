@@ -1,0 +1,48 @@
+.topTitle {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Roboto';
+    font-size: 35px;
+}
+
+.attractionsGrid {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 130px;
+    row-gap: 50px;
+    justify-content: center;
+}
+
+.attraction {
+    display: flex;
+    align-items: center;
+}
+
+.attraction img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-right: 20px;
+    box-shadow: 0 0 1px black;
+}
+
+.information a {
+    display: block;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    color: black;
+    padding: 7px 0;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.information a:hover {
+    text-decoration: underline;
+}
+
+.information span {
+    font-family: 'Roboto', sans-serif;
+    color: grey;
+    font-weight: 400;
+}
