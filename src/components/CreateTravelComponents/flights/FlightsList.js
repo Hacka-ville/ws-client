@@ -18,7 +18,7 @@ const FlightsList = (props) => {
                 <Card shadow={"md"} style={{ width: "120%", display: 'flex', border: `${flight.id === selectedFlight ? '2px solid blue' : 'none'}`}} id={`flight-${index}`} key={index}>
                     <div style={{ width: '85%', display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
                     <Text size="md" style={{ textAlign: 'center'}}>13:25 <div>{flight.location.flightLocation}</div></Text>
-                    <Divider size="lg" style={{ width: '50%'}} label={getMinDiff(new Date(flight.flightInformations.flightHour), new Date(flight.flightInformations.arriveHour)) + ' MINS'} labelPosition="center"/>
+                    <Divider size="lg" style={{ width: '50%'}} label={getMinDiff(new Date(flight.flightInformations.flightHour.replaceAll(':', '-')), new Date(flight.flightInformations.arriveHour.replaceAll(':', '-'))) + ' MINS'} labelPosition="center"/>
                     <Text size="md" style={{ textAlign: 'center'}}>{"14:55"}<div>{flight.location.arriveLocation}</div></Text>
                         <div style={{ display: 'flex', flexDirection: 'column'}}>
                         <Text size="sm" style={{ color: '#2b2b2b' }} id={flight.id}>Nr. zbor: {flight.number}</Text>
